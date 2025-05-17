@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.bg-inicio {
+	background-image: url('./images/inicio/fondo_inicio.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.bg-img-inicio {
+	background-image: url('./images/inicio/moto-imagen.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.bg-inicio-pc {
+	background-image: url('./images/inicio/fondo_inicio_pc.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.bg-cliente {
+	background-image: url('./images/cliente/fondo.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: auto;
+}
+
+.bg-cliente-movil {
+	background-image: url('./images/cliente/fondo-movil.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.img-logo {
+	background-image: url('./images/inicio/logo.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.google-icon {
+	background-image: url('./images/inicio/icons/google-icon.svg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.moto-icon {
+	background-image: url('./images/panel/icons/moto-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.estadisticas-icon {
+	background-image: url('./images/panel/icons/estaditicas-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.cliente-icon {
+	background-image: url('./images/panel/icons/cliente-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.back-icon {
+	background-image: url('./images/icons/back-icon.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.restaurante-icon {
+	background-image: url('./images/panel/icons/restaurante-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.text-shadow {
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.text-shadow-md {
+	text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.text-shadow-lg {
+	text-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3);
+}
+.text-shadow-none {
+	text-shadow: none;
+}
