@@ -1,9 +1,27 @@
 import React from "react";
 import CardRestaurante from "../../components/CardRestaurante";
+import { NavMovil } from "../../components/NavMovil";
 
 const VerRestaurantes: React.FC = () => {
 
     //DEBE RECIBIR UN ARRAY DE TODOS LOS RESTAURANTES
+    const navOptions = [
+        {
+        nombre: 'Inicio',
+        icono: 'casa-icon',
+        ruta: '/ver-restaurantes',
+        },
+        {
+        nombre: 'Carrito',
+        icono: 'carrito-icon',
+        ruta: '/'
+        },
+        {
+        nombre: 'Cuenta',
+        icono: 'usuario-icon',
+        ruta: '/a',
+        }
+    ];
 
 
     return(
@@ -33,43 +51,13 @@ const VerRestaurantes: React.FC = () => {
                     nombre="Pastinni" 
                     rutaImagen="/src/images/imagen-plato-generica.png"
                     />
-                    <CardRestaurante 
-                    nombre="Pastinni" 
-                    rutaImagen="/src/images/imagen-plato-generica.png"
-                    />
-                    <CardRestaurante 
-                    nombre="Pastinni" 
-                    rutaImagen="/src/images/imagen-plato-generica.png"
-                    />
-                    <CardRestaurante 
-                    nombre="Pastinni" 
-                    rutaImagen="/src/images/imagen-plato-generica.png"
-                    />
-                    <CardRestaurante 
-                    nombre="Pastinni" 
-                    rutaImagen="/src/images/imagen-plato-generica.png"
-                    />
-                    <CardRestaurante 
-                    nombre="Pastinni" 
-                    rutaImagen="/src/images/imagen-plato-generica.png"
-                    />
-                    <CardRestaurante 
-                    nombre="Pastinni" 
-                    rutaImagen="/src/images/imagen-plato-generica.png"
-                    />
-                    <CardRestaurante 
-                    nombre="Pastinni" 
-                    rutaImagen="/src/images/imagen-plato-generica.png"
-                    />
-                    <CardRestaurante 
-                    nombre="Pastinni" 
-                    rutaImagen="/src/images/imagen-plato-generica.png"
-                    />
                 </div>
             </div>
-
+            <NavMovil opciones={navOptions}></NavMovil>
             {/* Footer o espacio inferior */}
-            <div className="h-16 bg-cliente w-full"></div> {/* Ajusta según tu diseño */}
+            <div className="h-16 bg-cliente w-full">
+                
+            </div> {/* Ajusta según tu diseño */}
             </div>
     );
 };

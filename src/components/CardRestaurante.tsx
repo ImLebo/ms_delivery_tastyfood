@@ -3,6 +3,7 @@ import React from 'react';
 interface CardRestauranteProps {
     nombre: string;
     rutaImagen: string;
+    idDireccionamiento?: Number; 
 }
 
 const CardRestaurante: React.FC<CardRestauranteProps> = ({

@@ -87,6 +87,48 @@
 	background-repeat: no-repeat;
 }
 
+.casa-icon {
+	background-image: url('./images/icons/home-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.casa-icon-disable {
+	background-image: url('./images/icons/home-icon-disable.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.carrito-icon {
+	background-image: url('./images/icons/carrito-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.carrito-icon-disable {
+	background-image: url('./images/icons/carrito-icon-disable.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.usuario-icon {
+	background-image: url('./images/icons/usuario-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.usuario-icon-disable {
+	background-image: url('./images/icons/usuario-icon-disable.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .text-shadow {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
