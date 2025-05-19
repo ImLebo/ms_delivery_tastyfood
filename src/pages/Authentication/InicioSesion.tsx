@@ -1,6 +1,9 @@
 import React from "react";
+import { useGoogleAuth } from "../../hooks/googleLogin";
 
 const InicioSesion: React.FC = () => {
+
+	const login = useGoogleAuth()
 
 	return(
 			<div className="w-full h-screen bg-inicio-pc flex">
@@ -8,7 +11,7 @@ const InicioSesion: React.FC = () => {
 				<div className="w-full md:w-1/2 flex flex-col items-center justify-center gap-4">
 					<div className="logo-inicio w-28 h-28 img-logo md:w-44 md:h-44"></div>
 						<h1 className="font-pixel text-white text-[2.5rem] text-shadow-md">TastyFood</h1>
-					<div className="cursor-pointer bg-white mt-16 px-8 py-3 rounded-2xl flex items-center justify-center gap-3 hover:shadow-md transition-shadow">
+					<div className="cursor-pointer bg-white mt-16 px-8 py-3 rounded-2xl flex items-center justify-center gap-3 hover:shadow-md transition-shadow" onClick={() => login()}>
 						<span className="inline-block w-6 h-6 google-icon"></span>
 						<p className="font-medium text-gray-700">Ingresa con Google</p>
 					</div>
