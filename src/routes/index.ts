@@ -4,6 +4,7 @@ const InicioSesion = lazy(() => import('../pages/Authentication/InicioSesion'));
 const Panel = lazy(() => import('../pages/Panel')); 
 const VerRestaurantes = lazy(() => import('../pages/Cliente/VerRestaurantes'))
 const PanelRepartidor = lazy(() => import('../pages/Repartidor/PanelRepartidor'))
+const GestionarRepartidor = lazy(() => import('../pages/Repartidor/GestionarRepartidor'));
 
 const coreRoutes = [
 	{
@@ -25,6 +26,11 @@ const coreRoutes = [
 		path: '/repartidor',
 		title: 'PanelRepartidor',
 		component: PanelRepartidor
+	},
+	{
+		path: '/gestionar-repartidor',
+		title: 'GestionarRepartidor',
+		component: GestionarRepartidor
 	}
 ]
 
