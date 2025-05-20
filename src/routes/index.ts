@@ -5,6 +5,8 @@ const Panel = lazy(() => import('../pages/Panel'));
 const VerRestaurantes = lazy(() => import('../pages/Cliente/VerRestaurantes'))
 const PanelRepartidor = lazy(() => import('../pages/Repartidor/PanelRepartidor'))
 const GestionarRepartidor = lazy(() => import('../pages/Repartidor/GestionarRepartidor'));
+const PanelRestaurante = lazy(() => import('../pages/Restaurante/PanelRestaurante'))
+const GestionarRestaurante = lazy(() => import('../pages/Restaurante/GestionarRestaurante'))
 
 const coreRoutes = [
 	{
@@ -27,10 +29,20 @@ const coreRoutes = [
 		title: 'PanelRepartidor',
 		component: PanelRepartidor
 	},
+		{
+		path: '/restaurante',
+		title: 'PanelRestaurante',
+		component: PanelRestaurante
+	},
 	{
 		path: '/gestionar-repartidor',
 		title: 'GestionarRepartidor',
 		component: GestionarRepartidor
+	},
+	{
+		path: '/gestionar-restaurante',
+		title: 'GestionarRestaurante',
+		component: GestionarRestaurante
 	}
 ]
 

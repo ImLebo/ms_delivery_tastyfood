@@ -66,9 +66,9 @@ const GestionarRepartidor: React.FC = () => {
             titulo="gestion repartidor"
             />
 
-        <div className="w-full mt-6">
-            <div className="w-full h-px bg-azul-principal my-2"></div>
-        </div>
+            <div className="w-full mt-6">
+                <div className="w-full h-px bg-azul-principal my-2"></div>
+            </div>
             
             <div className="flex-1 overflow-y-auto pb-8">
                 <div className="flex flex-col items-center justify-center mt-2 md:mt-8 md:gap-10 w-full">

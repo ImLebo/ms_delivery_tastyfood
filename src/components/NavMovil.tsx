@@ -8,7 +8,7 @@ type NavOption = {
 
 type InfoSinNav = {
     icono?: string; 
-    nombre?:string
+    nombre?: string
 }
 
 type BottomNavProps = {
@@ -36,8 +36,8 @@ export const NavMovil = ({ opciones, informacion, className = '' }: BottomNavPro
                     {opcion.nombre && <span className="font-koulen mt-1">{opcion.nombre}</span>}
                 </Link>
                 ))}
-                {informacion?.map((info, index) => (
-                    <div key={index} className='flex flex-row gap-2 '>
+                {informacion?.map((info) => (
+                    <div className='flex flex-row gap-2 '>
                         {info.icono && <span className={`w-8 h-8 inline-block ${info.icono}`}></span>}
                         <h2 className='font-koulen text-azul-principal text-2xl mt-1'>{info.nombre}</h2>
                     </div>
