@@ -129,6 +129,41 @@
 	background-repeat: no-repeat;
 }
 
+.gestionar-repartidor-icon {
+	background-image: url('./images/repartidor/gestionar-repartidor-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.gestionar-turno-icon {
+	background-image: url('./images/repartidor/gestionar-turno-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.eliminar-icon {
+	background-image: url('./images/icons/eliminar-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.usuario-negro-icon {
+	background-image: url('./images/icons/user-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.editar-icon {
+	background-image: url('./images/icons/edit-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .text-shadow {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
