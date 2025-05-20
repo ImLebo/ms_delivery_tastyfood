@@ -6,7 +6,7 @@ interface Props {
     titulo: string;
 }
 
-const HeaderRepartidor: FC<Props> = ({ rutaAtras, titulo }) => {
+const HeaderGeneral: FC<Props> = ({ rutaAtras, titulo }) => {
     const navegar = useNavigate();
 
     const handleClickAtras = () => {
@@ -31,4 +31,4 @@ const HeaderRepartidor: FC<Props> = ({ rutaAtras, titulo }) => {
     );
 };
 
-export default HeaderRepartidor;
+export default HeaderGeneral;

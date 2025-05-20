@@ -32,8 +32,8 @@ const Panel: React.FC = () => {
                     <div className="logo-inicio mt-3 w-28 h-28 img-logo md:w-28 md:h-28"></div>
                         <h1 className="font-pixel text-white text-[2.5rem] text-shadow-md">TastyFood</h1>
                     <div className="w-52 h-14 flex flex-col gap-6">
-                    { Botones.map((boton: any) => (
-                        <Boton nombre={boton.nombre} ruta={boton.ruta} icono={boton.icono}></Boton>
+                    { Botones.map((boton: any, index) => (
+                        <Boton key={index} nombre={boton.nombre} ruta={boton.ruta} icono={boton.icono}></Boton>
                     ))}
                     </div>
                 </div>
