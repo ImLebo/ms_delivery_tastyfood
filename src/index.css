@@ -166,6 +166,9 @@
 
 .agregar-icon {
 	background-image: url('./images/icons/agregar-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .gestionar-restaurante-icon {
