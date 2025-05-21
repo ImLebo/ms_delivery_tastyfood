@@ -13,6 +13,8 @@ const GestionarMenu = lazy(() => import('../pages/Restaurante/GestionarMenu'));
 const GestionarMoto = lazy(() => import('../pages/Repartidor/GestionarMoto'));
 const GestionarTurno = lazy(() => import('../pages/Repartidor/GertionarTurno'));
 const GestionarNovedad = lazy(() => import('../pages/Repartidor/GestionarNovedad'));
+const Carrito = lazy(() => import("../pages/Restaurante/CarritoCompras"));
+const G_Clientes = lazy(() => import("../pages/Restaurante/GestionClientes"));
 
 const coreRoutes = [
 	{
@@ -77,6 +79,16 @@ const coreRoutes = [
 				path: '/gestionar-novedad',
 				title: 'GestionarNovedad',
 				component: GestionarNovedad
+			},
+			{
+				path: '/gestion-clientes',
+				title: 'Gestion Clientes',
+				component: G_Clientes,
+			},
+			{
+				path: '/carrito',
+				title: 'Carrito',
+				component: Carrito,
 			}]}
 ];
 

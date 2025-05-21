@@ -16,7 +16,7 @@ const Panel: React.FC = () => {
         },
         {
             nombre: 'Cliente',
-            ruta: '/cliente',
+            ruta: '/gestion-clientes',
             icono: 'cliente-icon'
         },
         {
