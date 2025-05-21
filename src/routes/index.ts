@@ -8,6 +8,7 @@ const GestionarRepartidor = lazy(() => import('../pages/Repartidor/GestionarRepa
 const PanelRestaurante = lazy(() => import('../pages/Restaurante/PanelRestaurante'))
 const GestionarRestaurante = lazy(() => import('../pages/Restaurante/GestionarRestaurante'))
 const GestionarProducto = lazy(() => import('../pages/Restaurante/GestionarProducto'))
+const GestionarMenu = lazy(() => import('../pages/Restaurante/GestionarMenu'))
 
 
 const coreRoutes = [
@@ -50,6 +51,11 @@ const coreRoutes = [
 		path: '/gestionar-producto',
 		title: 'GestionarProducto',
 		component: GestionarProducto
+	},
+	{
+		path: '/gestionar-menu',
+		title: 'GestionarMenu',
+		component: GestionarMenu
 	}
 ]
 
