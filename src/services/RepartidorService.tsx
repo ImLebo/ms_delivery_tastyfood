@@ -37,8 +37,11 @@ export const createRepartidor = async (repartidor: Omit<Repartidor, 'id'>): Prom
             },
             body: JSON.stringify(repartidor)
         });
+
         if (!respuesta.ok) throw new Error("Error al crear el repartidor.");
-        return await respuesta.json();
+        
+        const data = await respuesta.json();
+        return data[0]; 
     } catch (error) {
         console.error(error);
         throw error;

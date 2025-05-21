@@ -164,6 +164,10 @@
 	background-repeat: no-repeat;
 }
 
+.agregar-icon {
+	background-image: url('./images/icons/agregar-icon.svg');
+}
+
 .gestionar-restaurante-icon {
 	background-image: url('./images/restaurantes/gestionar-restaurante-icon.svg');
 	background-size: contain;
@@ -191,6 +195,7 @@
 	background-position: center;
 	background-repeat: no-repeat;
 }
+
 
 .text-shadow {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
