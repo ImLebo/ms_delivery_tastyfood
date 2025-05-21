@@ -192,7 +192,7 @@ const GestionarProducto: React.FC = () => {
                                                     name: producto.name,
                                                     description: producto.description,
                                                     price: producto.price,
-                                                    category: producto.category
+                                                    category: producto.category,
                                                 })} 
                                                 className="flex items-center gap-1">
                                                     <span className="w-6 h-6 md:w-8 md:h-8 inline-block editar-icon"></span> Editar 

@@ -1,4 +1,4 @@
-type InputType = string & ('text' | 'number' | 'email' | 'password' | 'select' | 'textarea' | 'datetime-local' | 'file');
+type InputType = string & ('text' | 'number' | 'email' | 'password' | 'select' | 'textarea' | 'datetime-local' | 'file' | 'checkbox' );
 
 export interface FormField {
     name: string;

@@ -163,7 +163,7 @@ const GestionarMoto: React.FC = () => {
 
     //Metodos
 
-    const eliminarTurnos = async (id: number) => {
+    const eliminarTurno = async (id: number) => {
         confirmAlert({
             title: 'Confirmar eliminación',
             message: '¿Estás seguro de eliminar este turno?',
@@ -228,7 +228,7 @@ const GestionarMoto: React.FC = () => {
                                         <div className="flex items-center justify-center">
                                             <div className="w-20  h-20 md:w-24 md:h-24 inline-block moto-icon border p-2 border-blue-900 rounded-full"></div>
                                             {/* Implementar el eliminar */}
-                                            <span onClick={()  => eliminarTurnos(turno.id)} className="absolute top-0 right-0 w-8 h-8 md:w-9 md:h-9 inline-block cursor-pointer eliminar-icon"></span>
+                                            <span onClick={()  => eliminarTurno(turno.id)} className="absolute top-0 right-0 w-8 h-8 md:w-9 md:h-9 inline-block cursor-pointer eliminar-icon"></span>
                                         </div>
                                             {/* Informacion del Moto */}
                                         <div className="flex flex-col w-full p-1 gap-1">

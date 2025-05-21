@@ -27,14 +27,14 @@ export const getProductoById = async (id: number): Promise<Producto> => {
 }
 
 //Crear un nuevo repartidor 
-export const createProducto = async (repartidor: Omit<Producto, 'id'>): Promise<Producto> => {
+export const createProducto = async (producto: Omit<Producto, 'id'>): Promise<Producto> => {
     try {
         const respuesta = await fetch(API_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(repartidor)
+            body: JSON.stringify(producto)
         });
         if (!respuesta.ok) throw new Error("Error al crear el repartidor.");
         return await respuesta.json();
@@ -45,14 +45,14 @@ export const createProducto = async (repartidor: Omit<Producto, 'id'>): Promise<
 }
 
 //Actualizar el repartidor
-export const updateProducto = async (id: number, repartidor: Partial<Producto>): Promise<Producto> => {
+export const updateProducto = async (id: number, producto: Partial<Producto>): Promise<Producto> => {
     try {
         const respuesta = await fetch(`${API_URL}/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(repartidor)
+            body: JSON.stringify(producto)
         });
         if (!respuesta.ok) throw new Error(`Error al actualizar el repartidor con ID ${id}.`);
         return await respuesta.json();
