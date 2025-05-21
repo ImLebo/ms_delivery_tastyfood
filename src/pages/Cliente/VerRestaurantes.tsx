@@ -25,7 +25,7 @@ const VerRestaurantes: React.FC = () => {
 
 
     return(
-            <div className="w-full min-h-screen bg-cliente flex flex-col py-3 px-6 relative">
+        <div className="w-full min-h-screen bg-cliente flex flex-col py-3 px-6 relative">
             {/* Header */}
                 <div className="flex w-full justify-between">
                     <span className="w-12 h-12 inline-block back-icon"></span>
@@ -48,7 +48,7 @@ const VerRestaurantes: React.FC = () => {
             <div className="flex-1 overflow-y-auto pb-6"> {/* Añadido pb-6 para padding bottom */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 w-full">
                     <CardRestaurante 
-                    nombre="Pastinni" 
+                    nombre="Pastinni"
                     rutaImagen="/src/images/imagen-plato-generica.png"
                     />
                 </div>
@@ -58,7 +58,7 @@ const VerRestaurantes: React.FC = () => {
             <div className="h-16 bg-cliente w-full">
                 
             </div> {/* Ajusta según tu diseño */}
-            </div>
+        </div>
     );
 };
 
