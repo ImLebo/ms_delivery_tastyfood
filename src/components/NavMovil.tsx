@@ -37,7 +37,7 @@ export const NavMovil = ({ opciones, informacion, className = '' }: BottomNavPro
                 </Link>
                 ))}
                 {informacion?.map((info) => (
-                    <div className='flex flex-row gap-2 '>
+                    <div key={info.nombre} className='flex flex-row gap-2 '>
                         {info.icono && <span className={`w-8 h-8 inline-block ${info.icono}`}></span>}
                         <h2 className='font-koulen text-azul-principal text-2xl mt-1'>{info.nombre}</h2>
                     </div>
