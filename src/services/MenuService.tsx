@@ -1,9 +1,9 @@
-import Restaurante from "../models/Restaurante";
+import Menu from "../models/Menu";
 
-const API_URL = import.meta.env.VITE_API_URL + '/restaurants' || "";
+const API_URL = import.meta.env.VITE_API_URL + '/menus' || "";
 
-//Esto es para obtener todos los repartidores 
-export const getRestaurante = async (): Promise<Restaurante[]> => {
+//Esto es para obtener todos los menús 
+export const getMenu = async (): Promise<Menu[]> => {
     try {
         const respuesta = await fetch(API_URL);
         if (!respuesta.ok) throw new Error("Error al obtener los repartidores.");
@@ -14,8 +14,8 @@ export const getRestaurante = async (): Promise<Restaurante[]> => {
     }
 }
 
-//Obtener cada repartidor por su ID
-export const getRestauranteById = async (id: number): Promise<Restaurante> => {
+//Obtener cada menú por su ID
+export const getMenurById = async (id: number): Promise<Menu> => {
     try {
         const respuesta = await fetch(`${API_URL}/${id}`);
         if (!respuesta.ok) throw new Error(`Error al obtener el repartidor con ID ${id}.`);
@@ -26,33 +26,36 @@ export const getRestauranteById = async (id: number): Promise<Restaurante> => {
     }
 }
 
-//Crear un nuevo repartidor 
-export const createRestaurante = async (restaurante: Omit<Restaurante, 'id'>): Promise<Restaurante> => {
+//Crear un nuevo menú 
+export const createMenu = async (menu: Omit<Menu, 'id'>): Promise<Menu> => {
     try {
         const respuesta = await fetch(API_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(restaurante)
+            body: JSON.stringify(menu)
         });
+
         if (!respuesta.ok) throw new Error("Error al crear el repartidor.");
-        return await respuesta.json();
+        
+        const data = await respuesta.json();
+        return data[0]; 
     } catch (error) {
         console.error(error);
         throw error;
     }
 }
 
-//Actualizar el repartidor
-export const updateRestaurante = async (id: number, restaurante: Partial<Restaurante>): Promise<Restaurante> => {
+//Actualizar el menú
+export const updateMenu = async (id: number, menu: Partial<Menu>): Promise<Menu> => {
     try {
         const respuesta = await fetch(`${API_URL}/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(restaurante)
+            body: JSON.stringify(menu)
         });
         if (!respuesta.ok) throw new Error(`Error al actualizar el repartidor con ID ${id}.`);
         return await respuesta.json();
@@ -62,8 +65,8 @@ export const updateRestaurante = async (id: number, restaurante: Partial<Restaur
     }
 }
 
-//Eliminar repartidor 
-export const deleteRestaurante = async (id: number): Promise<boolean> => {
+//Eliminar menú 
+export const deleteMenu = async (id: number): Promise<boolean> => {
     try {
         const respuesta = await fetch(`${API_URL}/${id}`, {
             method: 'DELETE'
