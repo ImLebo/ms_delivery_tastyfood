@@ -32,28 +32,24 @@ const GestionarRestaurante: React.FC = () => {
                             />
                         </div>
 
-                        <div className="w-full h-[60%] flex flex-col md:flex-row">
-                            <div className="flex-1 flex flex-col relative after:content-[''] after:absolute after:top-2 after:right-12 after:w-1 after:h-32 after:bg-sky-500">
-                                <div className="w-full h-[5%] flex items-center justify-center p-4 ">
-                                    <h2 className="text-xl font-bold w-full">
-                                    Nombre:
-                                    </h2>
-                                </div>
-                                <div className="w-full h-[5%] flex items-center justify-center p-4 ">
-                                    <h2 className="text-xl font-bold w-full">
-                                    Dirección:
-                                    </h2>
-                                </div>                        <div className="w-full h-[5%] flex items-center justify-center p-4 ">
-                                    <h2 className="text-xl font-bold w-full">
-                                    Telefono:
-                                    </h2>
-                                </div>
-                                <div className="w-full h-[5%] flex items-center justify-center p-4 ">
-                                    <h2 className="text-xl font-bold w-full">
-                                    Correo:
-                                    </h2>
-                                </div>
+                        <div className="w-full h-[60%] flex flex-row p-4">
+                            <div className="w-3/5 flex flex-col justify-center pr-[11rem] md:pr-[13rem]">
+                                <p className="inline-block font-semibold text-lg text-left">Nombre:</p>
+                                <p className="inline-block font-semibold text-lg text-left">Dirección:</p>
+                                <p className="inline-block font-semibold text-lg text-left">Teléfono:</p>
+                                <p className="inline-block font-semibold text-lg text-left">Correo:</p>
                             </div>
+
+                            <div className="w-[1px] bg-azul-principal mx-2"></div>
+
+                            <div className="w-2/5 flex flex-col justify-around items-center text-black text-base font-medium">
+                                <button className="flex items-center">
+                                <span className="w-8 h-8 md:w-8 md:h-8 inline-block editar-icon"></span> 
+                                </button>
+                                <button className="flex items-center">
+                                <span className="w-8 h-8 md:w-9 md:h-9 inline-block eliminar-icon"></span>
+                                </button>
+                            </div>                            
                         </div>
                     </div>
                 </div>
