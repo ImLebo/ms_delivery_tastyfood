@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 //Componentes
 import HeaderGeneral from "../../components/HeaderGeneral";
 import { NavMovil } from "../../components/NavMovil";
@@ -24,13 +26,18 @@ const GestionarMoto: React.FC = () => {
 
     //Variables reactivas
 
+
     const [initialLoading, setInitialLoading] = useState(true);
     const [motocicletas, setMoto] = useState<Motocicleta[]>([]);
     const [tituloModal, setTituloModal] =  useState<string>();
     
     //Variables
     const { isOpen, initialData, openModal, closeModal } = gestionarModal();
+    const navigate = useNavigate();
 
+    const presionarClick = () => {
+        navigate('/gestionar-novedad');
+    }
 
     //Código adicional (Aux, Complementos para componentes, Etc)
 
@@ -172,9 +179,16 @@ const GestionarMoto: React.FC = () => {
         {initialLoading ? (
             <></>
         ): (
-        <div className="w-full mt-1 flex items-center">
-            <button onClick={() => presionarCrear()} className="flex items-center content-center justify-center font-koulen mx-auto text-xl px-6 py-2 rounded-3xl mt-2 bg-azul-principal text-white"><span className="w-6 h-6 mr-1 inline-block agregar-icon"></span>Agregar</button>
-        </div>)}
+        <div className="flex flex-row gap-2">
+            <div className="w-full mt-1 flex items-center">
+                <button onClick={() => presionarCrear()} className="flex items-center content-center justify-center font-koulen mx-auto text-xl px-6 py-2 rounded-3xl mt-2 bg-azul-principal text-white"><span className="w-6 h-6 mr-1 inline-block agregar-icon"></span>Agregar</button>
+            </div>
+
+            <div className="w-full mt-1 flex items-center">
+                <button onClick={() => presionarClick()} className="flex items-center content-center justify-center font-koulen mx-auto text-xl px-6 py-2 rounded-3xl mt-2 bg-azul-principal text-white"><span className="w-6 h-6 mr-1 inline-block novedad-icon"></span>Novedad</button>
+            </div>
+        </div>
+    )}
         
             
             <div className="flex-1 overflow-y-auto pb-8">

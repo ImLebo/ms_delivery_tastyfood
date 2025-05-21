@@ -26,6 +26,16 @@ const ModalCrearActualizar: React.FC<ModalFormProps> = ({
     }) => {
     const [formData, setFormData] = useState<Record<string, any>>({});
 
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, files } = e.target;
+        if (files && files[0]) {
+            setFormData({
+            ...formData,
+            [name]: files[0]
+            });
+        }
+    };
+
     // Efecto para inicializar/resetear el formulario cuando cambia isOpen o initialData
     useEffect(() => {
         if (isOpen) {
@@ -37,13 +47,24 @@ const ModalCrearActualizar: React.FC<ModalFormProps> = ({
         }
     }, [isOpen, initialData, fields]);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData({
-        ...formData,
-        [name]: value,
-        });
+// Reemplaza tu handleChange por esto:
+        const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const { name, value, files, type } = e.target as any;
+        if (type === 'file') {
+            if (files && files[0]) {
+            setFormData({
+                ...formData,
+                [name]: files[0],               // File real
+            });
+            }
+        } else {
+            setFormData({
+            ...formData,
+            [name]: value,
+            });
+        }
     };
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -71,7 +92,16 @@ const ModalCrearActualizar: React.FC<ModalFormProps> = ({
                     {field.label}:
                     </label>
                     
-                    {field.type === 'select' ? (
+                    {field.type === 'file' ? (
+                <input
+                    type="file"
+                    id={field.name}
+                    name={field.name}
+                    onChange={handleFileChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700..."
+                    required={field.required}
+                />
+                ) : field.type === 'select' ? (
                     <select
                         id={field.name}
                         name={field.name}

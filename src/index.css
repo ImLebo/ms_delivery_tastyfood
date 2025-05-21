@@ -206,6 +206,20 @@
 	background-repeat: no-repeat;
 }
 
+.novedad-icon {
+	background-image: url('./images/icons/novedad-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.novedad-negro-icon {
+	background-image: url('./images/icons/novedad-negro-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .dinero-icon {
 	background-image: url('./images/icons/dinero-icon.svg');
 	background-size: contain;

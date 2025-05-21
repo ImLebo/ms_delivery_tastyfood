@@ -1,9 +1,14 @@
 import React from "react";
 import { useGoogleAuth } from "../../hooks/googleLogin";
+import { useNavigate } from "react-router-dom";
+
 
 const InicioSesion: React.FC = () => {
 
-	const login = useGoogleAuth()
+    const navigate = useNavigate();
+    const login = useGoogleAuth(() => {
+        navigate("/panel");
+    });
 
 	return(
 			<div className="w-full h-screen bg-inicio-pc flex">
