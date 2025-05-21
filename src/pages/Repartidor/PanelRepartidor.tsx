@@ -59,7 +59,7 @@ const PanelRepartidor: React.FC = () => {
                     </div>
                     <div 
                     className="flex flex-col rounded-md items-center justify-center text-center w-[60%] border-2 border-dotted border-blue-900 p-3 md:p-8 md:w-[30%] cursor-pointer" 
-                    onClick={() => clickOpcionPanel('/gestionar-repartidor')}
+                    onClick={() => clickOpcionPanel('/gestionar-turno')}
                     >
                         <div className="w-16 h-16 md:w-11 md:h-11 inline-block gestionar-turno-icon"></div>
                         <h3>Gestionar Turno</h3>

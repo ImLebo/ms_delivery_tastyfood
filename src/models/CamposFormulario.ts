@@ -1,4 +1,4 @@
-type InputType = string & ('text' | 'number' | 'email' | 'password' | 'select' | 'textarea');
+type InputType = string & ('text' | 'number' | 'email' | 'password' | 'select' | 'textarea' | 'datetime-local');
 
 export interface FormField {
     name: string;
@@ -6,6 +6,6 @@ export interface FormField {
     type: InputType;
     placeholder?: string;
     required?: boolean;
-    options?: { value: string; label: string }[]; // Solo para tipo 'select'
+    options?: { value: string | number; label: string }[]; // Solo para tipo 'select'
     defaultValue?: string | number;
 }
