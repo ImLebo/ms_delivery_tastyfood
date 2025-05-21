@@ -14,7 +14,7 @@ const VerRestaurantes: React.FC = () => {
         {
         nombre: 'Carrito',
         icono: 'carrito-icon',
-        ruta: '/'
+        ruta: '/carrito'
         },
         {
         nombre: 'Cuenta',

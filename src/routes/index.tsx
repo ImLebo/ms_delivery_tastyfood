@@ -15,6 +15,7 @@ const GestionarTurno = lazy(() => import('../pages/Repartidor/GertionarTurno'));
 const GestionarNovedad = lazy(() => import('../pages/Repartidor/GestionarNovedad'));
 const Carrito = lazy(() => import("../pages/Restaurante/CarritoCompras"));
 const G_Clientes = lazy(() => import("../pages/Restaurante/GestionClientes"));
+const GestionarEstadisticas = lazy(() => import('../pages/Estadisticas/GestionarEstadisticas'))
 
 const coreRoutes = [
 	{
@@ -89,6 +90,11 @@ const coreRoutes = [
 				path: '/carrito',
 				title: 'Carrito',
 				component: Carrito,
+			},
+			{
+				path: '/estadisticas',
+				title: 'GestionarGraficas',
+				component: GestionarEstadisticas
 			}]}
 ];
 
