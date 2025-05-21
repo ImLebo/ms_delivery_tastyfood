@@ -6,26 +6,26 @@ import HeaderGeneral from "../../components/HeaderGeneral";
 import { NavMovil } from "../../components/NavMovil";
 
 //Models
-import Repartidor from "../../models/Repartidor";
+import Motocicleta from "../../models/Motocicleta";
 import { FormField } from "../../models/CamposFormulario";
 
 import { gestionarModal } from "../../hooks/gestionarModal";
 import ModalCrearActualizar from "../../components/ModalCrearActualizar";
 
 //Service
-import { getRepartidores, createRepartidor, updateRepartidor, deleteRepartidor } from "../../services/RepartidorService";
+import { crearMotocicleta, obtenerMotocicletas, actualizarMotocicleta, eliminarMotocicleta } from "../../services/MotocicletaService";
 
 //Alerta
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 
-const GestionarRepartidor: React.FC = () => {
+const GestionarMoto: React.FC = () => {
 
     //Variables reactivas
 
     const [initialLoading, setInitialLoading] = useState(true);
-    const [repartidores, setRepartidores] = useState<Repartidor[]>([]);
+    const [motocicletas, setMoto] = useState<Motocicleta[]>([]);
     const [tituloModal, setTituloModal] =  useState<string>();
     
     //Variables
@@ -36,79 +36,74 @@ const GestionarRepartidor: React.FC = () => {
 
     const InfoSinNav = [
         {
-            icono: 'gestionar-repartidor-icon',
-            nombre: 'Gestionar Repartidor'
+            icono: 'moto-icon',
+            nombre: 'Gestionar Motos'
         }
     ]
 
 
-    const camposRepartidor: FormField[] = [
-        {
-        name: 'name',
-        label: 'Nombre',
+    const camposMotocicleta: FormField[] = [
+    {
+        name: 'license_plate',
+        label: 'Placa',
         type: 'text',
-        placeholder: 'Ingrese el nombre',
+        placeholder: 'Ingrese la placa de la motocicleta',
+        required: true
+    },
+    {
+        name: 'brand',
+        label: 'Marca',
+        type: 'text',
+        placeholder: 'Ingrese la marca (Ej: Honda, Yamaha)',
+        required: true
+    },
+    {
+        name: 'year',
+        label: 'Año',
+        type: 'number',
+        placeholder: 'Ingrese el año de fabricación',
         required: true,
-        },
-        {
-        name: 'license_number',
-        label: 'N-Licencia',
-        type: 'text',
-        placeholder: 'Ingrese el número de licencia',
-        required: true,
-        },
-        {
-        name: 'phone',
-        label: 'Teléfono',
-        type: 'text',
-        placeholder: 'Ingrese el teléfono',
-        },
-        {
-        name: 'email',
-        label: 'Correo',
-        type: 'email',
-        placeholder: 'Ingrese el correo electrónico',
-        },
-        {
+    },
+    {
         name: 'status',
         label: 'Estado',
         type: 'select',
-        options: [
-            { value: 'available', label: 'Activo' },
-            { value: 'unavailable', label: 'Inactivo' },
-        ],
         required: true,
-        },
-    ]
+        options: [
+            { value: 'available', label: 'Disponible' },
+            { value: 'in_use', label: 'En uso' },
+            { value: 'maintenance', label: 'En mantenimiento' }
+        ]
+    }
+];
 
-    const presionarEditar = (repartidor: Repartidor) => {
-        setTituloModal('Editar Repartidor'); 
-        openModal(repartidor);
+    const presionarEditar = (motocicleta: Motocicleta) => {
+        setTituloModal('Editar Motocicleta'); 
+        openModal(motocicleta);
     }
 
     const presionarCrear = () => {
-        setTituloModal('Crear Repartidor');
+        setTituloModal('Crear Motocicleta');
         openModal(); 
     }
 
     const enviarFormulario = async (data: any) => {
         try {
             if (initialData.id) {
-            const repartidorActualizado = await updateRepartidor(initialData.id, data);
-            setRepartidores(repartidores.map(rep => 
-                rep.id === initialData.id ? repartidorActualizado : rep
+            const motoActualizada = await actualizarMotocicleta(initialData.id, data);
+            setMoto(motocicletas.map(moto => 
+                moto.id === initialData.id ? motoActualizada : moto
             ));
             } else {
-            const respuesta = await createRepartidor(data);
+            const respuesta = await crearMotocicleta(data);
 
-            const nuevoRepartidor = respuesta; 
-            console.log(nuevoRepartidor); 
-            setRepartidores([...repartidores, nuevoRepartidor]);
+            const nuevaMoto = respuesta; 
+            setMoto([...motocicletas, nuevaMoto]);
             }
             closeModal();
         } catch (error) {
-            console.error("Error al guardar repartidor:", error);
-            alert("Ocurrió un error al guardar el repartidor");
+            console.error("Error al guardar la moto:", error);
+            alert("Ocurrió un error al guardar la moto");
         }
     };
 
@@ -125,10 +120,10 @@ const GestionarRepartidor: React.FC = () => {
     const obtenerInformacion = async () => {
         try {
             setInitialLoading(true);
-            const respuesta = await getRepartidores();
-            setRepartidores(respuesta);
+            const respuesta = await obtenerMotocicletas();
+            setMoto(respuesta);
             } catch (error) {
-                console.error("Error al obtener repartidores:", error);
+                console.error("Error al obtener las motos:", error);
             } finally {
                 setInitialLoading(false);
             }
@@ -136,19 +131,19 @@ const GestionarRepartidor: React.FC = () => {
 
     //Metodos
 
-    const eliminarRepartidor = async (id: number) => {
+    const eliminarMoto = async (id: number) => {
         confirmAlert({
             title: 'Confirmar eliminación',
-            message: '¿Estás seguro de eliminar este repartidor?',
+            message: '¿Estás seguro de eliminar esta moto?',
             buttons: [
             {
                 label: 'Sí',
                 onClick: async () => {
                 try {
-                    await deleteRepartidor(id);
-                    setRepartidores(repartidores.filter(rep => rep.id !== id));
+                    await eliminarMotocicleta(id);
+                    setMoto(motocicletas.filter(moto => moto.id !== id));
                 } catch (err) {
-                    alert("No se pudo eliminar el repartidor");
+                    alert("No se pudo eliminar la moto");
                 }
                 }
             },
@@ -167,7 +162,7 @@ const GestionarRepartidor: React.FC = () => {
 
             <HeaderGeneral 
             rutaAtras="/repartidor" 
-            titulo="gestion repartidor"
+            titulo="gestion motos"
             />
 
         <div className="w-full mt-6">
@@ -186,30 +181,29 @@ const GestionarRepartidor: React.FC = () => {
                 <div className="flex flex-col items-center justify-center mt-2 md:mt-8 md:gap-10 w-full">
                     {initialLoading ? (
                         <div className="flex justify-center items-center h-64">
-                            <p className="font-koulen text-2xl">Cargando repartidores...</p>
-                        </div>) : repartidores.length === 0 ? (
+                            <p className="font-koulen text-2xl">Cargando Motocicletas...</p>
+                        </div>) : motocicletas.length === 0 ? (
                                 <div className="flex justify-center items-center h-64">
-                                    <p>No hay repartidores registrados</p>
+                                    <p>No hay motos registradas.</p>
                                 </div>
                             ) : (
-                            repartidores.map((repartidor) => (
-                                <div key={repartidor.id}
+                            motocicletas.map((moto) => (
+                                <div key={moto.id}
                                 className="flex flex-col rounded-md items-center 
                                 justify-center text-center w-[80%] border-2 border-dotted
                                 border-blue-900 p-3 md:p-8 md:w-[50%] relative">
                                     
                                         <div className="flex items-center justify-center">
-                                            <div className="w-20  h-20 md:w-24 md:h-24 inline-block usuario-negro-icon"></div>
+                                            <div className="w-20  h-20 md:w-24 md:h-24 inline-block moto-icon border p-2 border-blue-900 rounded-full"></div>
                                             {/* Implementar el eliminar */}
-                                            <span onClick={()  => eliminarRepartidor(repartidor.id)} className="absolute top-0 right-0 w-8 h-8 md:w-9 md:h-9 inline-block cursor-pointer eliminar-icon"></span>
+                                            <span onClick={()  => eliminarMoto(moto.id)} className="absolute top-0 right-0 w-8 h-8 md:w-9 md:h-9 inline-block cursor-pointer eliminar-icon"></span>
                                         </div>
-                                            {/* Informacion del repartidor */}
+                                            {/* Informacion del Moto */}
                                         <div className="flex flex-col w-full p-1 gap-1">
-                                            <p className="inline-block font-semibold text-lg text-left">Nombre: {repartidor.name || '...Cargando'}</p>
-                                            <p className="inline-block font-semibold text-lg text-left">N-licencia: {repartidor.license_number || '...Cargando'}</p>
-                                            <p className="inline-block font-semibold text-lg text-left">Telefono: {repartidor.phone || '...Cargando'}</p>
-                                            <p className="inline-block font-semibold text-lg text-left">Correo: {repartidor.email || '...Cargando'}</p>
-                                            <p className="inline-block font-semibold text-lg text-left">Estado: {repartidor.status || '...Cargando'}</p>
+                                            <p className="inline-block font-semibold text-lg text-left">Matricula: { moto.license_plate || '...Cargando'}</p>
+                                            <p className="inline-block font-semibold text-lg text-left">Marca: { moto.brand || '...Cargando'}</p>
+                                            <p className="inline-block font-semibold text-lg text-left">Año: { moto.year || '...Cargando'}</p>
+                                            <p className="inline-block font-semibold text-lg text-left">Estado: { moto.status == 'available' ? 'Disponible' : moto.status == 'in_use' ? 'En uso' : moto.status == 'maintenance' ? 'Mantenimiento' : '...Cargando' }</p>
                                         </div>
 
                                         <div className="w-full mt-1">
@@ -217,14 +211,14 @@ const GestionarRepartidor: React.FC = () => {
                                         </div>
 
                                         <div>
+                                            {/* Aqui debe ir un editar */}
                                             <button onClick={() => presionarEditar({
-                                                id: repartidor.id,
-                                                name: repartidor.name,
-                                                license_number: repartidor.license_number,
-                                                phone: repartidor.phone,
-                                                email: repartidor.email, 
-                                                status: repartidor.status
-                                            })} className="flex items-center mt-4 gap-2 py-2 px-6 bg-azul-principal
+                                                id: moto.id,
+                                                license_plate: moto.license_plate,
+                                                year: moto.year,
+                                                status: moto.status,
+                                                brand: moto.brand
+                                            })}  className="flex items-center mt-4 gap-2 py-2 px-6 bg-azul-principal
                                             hover:bg-blue-950 text-xl rounded-lg text-center">
                                                 <span className="w-8 h-8 md:w-9 md:h-9 inline-block editar-icon"></span> Editar 
                                             </button>
@@ -237,7 +231,7 @@ const GestionarRepartidor: React.FC = () => {
 
         <ModalCrearActualizar 
         title={tituloModal}
-        fields={camposRepartidor}
+        fields={camposMotocicleta}
         onSubmit={enviarFormulario}
         isOpen={isOpen}
         onClose={closeModal}
@@ -251,4 +245,4 @@ const GestionarRepartidor: React.FC = () => {
     );
 };
 
-export default GestionarRepartidor;
+export default GestionarMoto;
