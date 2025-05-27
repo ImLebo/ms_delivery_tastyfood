@@ -16,7 +16,7 @@ const GestionarCliente = lazy(() => import('../pages/Cliente/GestionarCliente'))
 const GestionarNovedad = lazy(() => import('../pages/Repartidor/GestionarNovedad'));
 const VerRestaurantes = lazy(() => import('../pages/Cliente/VerRestaurantes'));
 const VerInfoRestaurante = lazy(() => import('../pages/Cliente/VerInfoRestaurante'));
-
+const Orden = lazy(() => import('../pages/Orden'));
 
 
 const coreRoutes = [
@@ -97,7 +97,12 @@ const coreRoutes = [
 				path: '/ver-info-restaurante/:id',
 				title: 'VerInfoRestaurante',
 				component: VerInfoRestaurante
-			},			
+			},
+			{
+				path: '/orden/:id',
+				title: 'Orden',
+				component: Orden
+			},				
 		]
 	}
 ];
