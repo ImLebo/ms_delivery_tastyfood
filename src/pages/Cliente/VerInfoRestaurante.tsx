@@ -39,6 +39,7 @@ const VerInfoRestaurante: React.FC = () => {
         }
     ];
 
+    //
     useEffect(() => {
         obtenerInformacion(Number(id));
     }, [id]);
