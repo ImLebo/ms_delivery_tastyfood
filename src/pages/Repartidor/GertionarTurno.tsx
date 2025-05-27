@@ -40,10 +40,21 @@ const GestionarMoto: React.FC = () => {
 
     //Código adicional (Aux, Complementos para componentes, Etc)
 
-    const InfoSinNav = [
+    const navOptions = [
         {
+            nombre: 'Gestionar moto',
             icono: 'moto-icon',
-            nombre: 'Gestionar Turnos'
+            ruta: '/gestionar-moto'
+        },
+        {
+            nombre: 'Gestuinar repartidor',
+            icono: 'gestionar-repartidor-icon',
+            ruta: '/gestionar-repartidor'
+        },
+        {
+            nombre: 'Cuenta',
+            icono: 'usuario-icon',
+            ruta: '/a'
         }
     ]
 
@@ -194,7 +205,7 @@ const GestionarMoto: React.FC = () => {
 
             <HeaderGeneral 
             rutaAtras="/repartidor" 
-            titulo="gestion motos"
+            titulo="gestion turnos"
             />
 
         <div className="w-full mt-6">
@@ -273,7 +284,7 @@ const GestionarMoto: React.FC = () => {
         ></ModalCrearActualizar>
 
         <div className="">
-            <NavMovil informacion={InfoSinNav} />
+            <NavMovil opciones={navOptions} />
         </div>
     </div>
     );

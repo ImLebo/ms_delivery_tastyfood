@@ -1,15 +1,32 @@
 import React from "react";
-import CardRestaurante from "../../components/CardRestaurante";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+//Models
+import Restaurante from "../../models/Restaurante";
+
+//Components
+import HeaderGeneral from "../../components/HeaderGeneral";
 import { NavMovil } from "../../components/NavMovil";
+import CardRestaurante from "../../components/CardRestaurante";
+
+//Services
+import { getRestaurante } from "../../services/RestauranteService";
 
 const VerRestaurantes: React.FC = () => {
+    //Variables reactivas 
+    const [restaurantes, setRestaurantes] = useState<Restaurante[]>([]);
+    const [initialLoading, setInitialLoading] = useState(true);
 
-    //DEBE RECIBIR UN ARRAY DE TODOS LOS RESTAURANTES
+    //Variables
+    const navigate = useNavigate()
+    
+    //Código adicional (Aux, Complementos para componentes, Etc)
     const navOptions = [
         {
-        nombre: 'Inicio',
-        icono: 'casa-icon',
-        ruta: '/ver-restaurantes',
+        nombre: 'Gestionar Cliente',
+        icono: 'usuario-negro-icon',
+        ruta: '/gestionar-cliente',
         },
         {
         nombre: 'Carrito',
@@ -23,41 +40,61 @@ const VerRestaurantes: React.FC = () => {
         }
     ];
 
+    //
+    useEffect(() => {
+        obtenerInformacion();
+    }, []);
+
+    const obtenerInformacion = async () => {
+        try {
+            setInitialLoading(true);
+            const respuesta = await getRestaurante();
+            setRestaurantes(respuesta);
+        } catch (error) {
+            console.error("Error al obtener restaurantes:", error);
+        } finally {
+            setInitialLoading(false);
+        }
+    };
 
     return(
         <div className="w-full min-h-screen bg-cliente flex flex-col py-3 px-6 relative">
             {/* Header */}
-                <div className="flex w-full justify-between">
-                    <span className="w-12 h-12 inline-block back-icon"></span>
-                    <div>
-                    <h5 className="font-bold text-right text-base md:text-lg lg:text-xl">Manizales,</h5>
-                    <h3 className="font-bold text-lg md:text-2xl lg:text-3xl">Direccion del cliente</h3>
-                    </div>
-                </div>
-
-            {/* Sección RESTAURANTES */}
-                <div className="w-full mt-6">
-                    <div className="flex gap-3 items-center">
-                    <h2 className="font-koulen text-xl md:text-2xl lg:text-3xl">RESTAURANTES</h2>
-                    <span className="w-6 h-6 inline-block img-logo"></span>
-                    </div>
-                    <div className="w-full h-px bg-azul-principal my-2"></div>
-                </div>
-
-            {/* Contenedor de Cards con scroll */}
-            <div className="flex-1 overflow-y-auto pb-6"> {/* Añadido pb-6 para padding bottom */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 w-full">
-                    <CardRestaurante 
-                    nombre="Pastinni"
-                    rutaImagen="/src/images/imagen-plato-generica.png"
+            <div className="flex w-full justify-between">
+                <div>
+                    <HeaderGeneral
+                    rutaAtras="/cliente"
                     />
                 </div>
+                <div>
+                    <h5 className="font-bold text-right text-base md:text-lg lg:text-xl">Manizales,</h5>
+                    <h5 className="font-bold text-lg md:text-2xl lg:text-3xl">Direccion del cliente</h5>
+                </div>
             </div>
+
+            <div className="w-full mt-6">
+                <div className="w-full h-px bg-azul-principal my-2"></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 w-full">
+                {initialLoading? (
+                    <div className="flex justify-center items-center h-64">
+                        <p className="font-koulen text-2xl">Cargando restaurantes...</p>
+                    </div>
+                ) : restaurantes.length === 0 ? (
+                    <div className="flex justify-center items-center h-64">
+                        <p>No hay restaurantes registrados</p>
+                    </div>
+                ) : restaurantes.map((restaurante) => (
+                    <CardRestaurante
+                    nombre={restaurante.name}
+                    rutaImagen="/src/images/imagen-plato-generica.png"
+                    onClick={() => navigate(`/ver-info-restaurante/${restaurante.id}`)}
+                    />
+                ))}
+            </div>
+
             <NavMovil opciones={navOptions}></NavMovil>
-            {/* Footer o espacio inferior */}
-            <div className="h-16 bg-cliente w-full">
-                
-            </div> {/* Ajusta según tu diseño */}
         </div>
     );
 };

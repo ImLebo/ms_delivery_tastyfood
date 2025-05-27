@@ -8,6 +8,7 @@ import { NavMovil } from "../../components/NavMovil";
 //Models
 import Restaurante from "../../models/Restaurante";
 import Producto from "../../models/Producto";
+import Menu from "../../models/Menu";
 import { FormField } from "../../models/CamposFormulario";
 
 import { gestionarModal } from "../../hooks/gestionarModal";
@@ -21,8 +22,6 @@ import { getMenu, createMenu, deleteMenu, updateMenu} from "../../services/MenuS
 //Alerta
 import { confirmAlert } from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import Menu from "../../models/Menu";
-
 
 const GestionarMenu: React.FC = () => {
     //Variables reactivas
@@ -36,10 +35,21 @@ const GestionarMenu: React.FC = () => {
     const { isOpen, initialData, openModal, closeModal } = gestionarModal();
     
     //Código adicional (Aux, Complementos para componentes, Etc)
-    const InfoSinNav = [
+    const navOptions = [
         {
-            icono: 'gestionar-menu-icon',
-            nombre: 'Gestionar Menu'
+            nombre: 'Gestionar producto',
+            icono: 'product-icon',
+            ruta:'/gestionar-producto'
+        },
+        {
+            nombre: 'Gestionar restaurante',
+            icono: 'gestionar-restaurante-icon',
+            ruta: '/gestionar-restaurante'
+        },
+        {
+            nombre: 'Cuenta',
+            icono: 'usuario-icon',
+            ruta: '/a'
         }
     ]
 
@@ -82,7 +92,7 @@ const GestionarMenu: React.FC = () => {
     ];
 
     const presionarEditar = (menu: Menu) => {
-        setTituloModal('Editar Motocicleta'); 
+        setTituloModal('Editar Menu'); 
         openModal(menu);
     }
 
@@ -94,15 +104,15 @@ const GestionarMenu: React.FC = () => {
     const enviarFormulario = async (data: any) => {
         try {
             if (initialData.id) {
-            const turnoActualizado = await updateMenu(initialData.id, data);
+            const menuActualizado = await updateMenu(initialData.id, data);
             setMenu(menus.map(menu => 
-                menu.id === initialData.id ? turnoActualizado : menu
+                menu.id === initialData.id ? menuActualizado : menu
             ));
             } else {
             const respuesta = await createMenu(data);
 
-            const nuevoTurno = respuesta; 
-            setMenu([...menus, nuevoTurno]);
+            const nuevoMenu = respuesta; 
+            setMenu([...menus, nuevoMenu]);
             }
             closeModal();
         } catch (error) {
@@ -132,11 +142,11 @@ const GestionarMenu: React.FC = () => {
 
     const obtenerInformacionComplementaria = async () => {
         try {
-            const respuestaMotos = await getRestaurante();
-            setRestaurante(respuestaMotos);
+            const respuestaRestaurantes = await getRestaurante();
+            setRestaurante(respuestaRestaurantes);
 
-            const respuestaRepartidores = await getProducto();
-            setProducto(respuestaRepartidores); 
+            const respuestaProductos = await getProducto();
+            setProducto(respuestaProductos); 
 
             } catch (error) {
                 console.error("Error al obtener los datos complementarios:", error);
@@ -147,7 +157,7 @@ const GestionarMenu: React.FC = () => {
     const eliminarMenu = async (id: number) => {
         confirmAlert({
             title: 'Confirmar eliminación',
-            message: '¿Estás seguro de eliminar este turno?',
+            message: '¿Estás seguro de eliminar este menú?',
             buttons: [
             {
                 label: 'Sí',
@@ -156,7 +166,7 @@ const GestionarMenu: React.FC = () => {
                     await deleteMenu(id);
                     setMenu(menus.filter(menu => menu.id !== id));
                 } catch (err) {
-                    alert("No se pudo eliminar la moto");
+                    alert("No se pudo eliminar el menú");
                 }
                 }
             },
@@ -251,7 +261,7 @@ const GestionarMenu: React.FC = () => {
             ></ModalCrearActualizar>
 
             <div className="">
-                <NavMovil informacion={InfoSinNav}></NavMovil>
+                <NavMovil opciones={navOptions} />
             </div>
         </div>
     )

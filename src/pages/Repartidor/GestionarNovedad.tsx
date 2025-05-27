@@ -33,10 +33,26 @@ const GestionarNovedad: React.FC = () => {
     const { isOpen, initialData, openModal, closeModal } = gestionarModal();
 
     // Configuración de navegación
-    const InfoSinNav = [
+    const navOptions = [
         {
-            icono: 'novedad-negro-icon',
-            nombre: 'Gestionar Novedades'
+            nombre: 'Gestionar moto',
+            icono: 'moto-icon',
+            ruta: '/gestionar-moto'
+        },
+        {
+            nombre: 'Gestionar repartidor',
+            icono: 'gestionar-repartidor-icon',
+            ruta: '/gestionar-repartidor'
+        },
+        {
+            nombre: 'Gestionar turno',
+            icono: 'gestionar-turno-icon',
+            ruta: '/gestionar-turno'
+        },
+        {
+            nombre: 'Cuenta',
+            icono: 'usuario-icon',
+            ruta: '/a'
         }
     ]
 
@@ -171,7 +187,7 @@ const GestionarNovedad: React.FC = () => {
             <div className="flex-1 flex flex-col py-3 px-6 pb-20">
                 <HeaderGeneral 
                     rutaAtras="/repartidor" 
-                    titulo="Gestión de Novedades"
+                    titulo="Gestion de Novedades"
                 />
 
                 <div className="w-full mt-6">
@@ -268,7 +284,7 @@ const GestionarNovedad: React.FC = () => {
             />
 
             <div className="">
-                <NavMovil informacion={InfoSinNav} />
+                <NavMovil opciones={navOptions} />
             </div>
         </div>
     );

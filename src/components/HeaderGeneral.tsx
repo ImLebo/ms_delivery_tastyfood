@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 interface Props {
     rutaAtras: string;
-    titulo: string;
+    titulo?: string;
 }
 
 const HeaderGeneral: FC<Props> = ({ rutaAtras, titulo }) => {

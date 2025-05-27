@@ -28,10 +28,21 @@ const GestionarRestaurante: React.FC = () => {
     const { isOpen, initialData, openModal, closeModal } = gestionarModal();
     
     //Código adicional (Aux, Complementos para componentes, Etc)
-    const InfoSinNav = [
+    const navOptions = [
         {
-            icono: 'gestionar-restaurante-icon',
-            nombre: 'Gestionar Restaurante'
+            nombre: 'Gestionar producto',
+            icono: 'product-icon',
+            ruta: '/gestionar-producto'
+        },
+        {
+            nombre: 'Gestionar menu',
+            icono: 'menu-restaurant-icon',
+            ruta: '/gestionar-menu'
+        },
+        {
+            nombre: 'Cuenta',
+            icono: 'usuario-icon',
+            ruta: '/a'
         }
     ]
 
@@ -79,16 +90,16 @@ const GestionarRestaurante: React.FC = () => {
     const enviarFormulario = async (data:any) => {
         try{
             if (initialData.id) {
-                const productoActualizado = await updateRestaurante(initialData.id, data);
+                const restauranteActualizado = await updateRestaurante(initialData.id, data);
                 setRestaurantes(restaurantes.map(res =>
-                    res.id === initialData.id ? productoActualizado : res
+                    res.id === initialData.id ? restauranteActualizado : res
                 ))
             }else {
                 const respuesta = await createRestaurante(data);
 
-                const nuevoProducto = respuesta;
-                console.log(nuevoProducto);
-                setRestaurantes([...restaurantes, nuevoProducto]);
+                const nuevoRestaurante = respuesta;
+                console.log(nuevoRestaurante);
+                setRestaurantes([...restaurantes, nuevoRestaurante]);
             }
         } catch (error) {
             console.log("Error al guardar el restaurante:", error);
@@ -218,7 +229,7 @@ const GestionarRestaurante: React.FC = () => {
             >
             </ModalCrearActualizar>
             <div className="">
-                <NavMovil informacion={InfoSinNav}></NavMovil>
+                <NavMovil opciones={navOptions} />
             </div>
         </div>
     );

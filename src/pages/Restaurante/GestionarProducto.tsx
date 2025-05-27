@@ -29,10 +29,21 @@ const GestionarProducto: React.FC = () => {
     const { isOpen, initialData, openModal, closeModal } = gestionarModal();
 
     //Código adicional (Aux, Complementos para componentes, Etc)
-    const InfoSinNav = [
+    const navOptions = [
         {
-            icono: 'gestionar-producto-icon',
-            nombre: 'Gestionar Producto'
+            nombre: 'Gestionar menu',
+            icono: 'menu-restaurant-icon',
+            ruta: '/gestionar-menu'
+        },
+        {
+            nombre: 'Gestionar restaurante',
+            icono: 'logo-restaurant-icon',
+            ruta: '/gestionar-restaurante'
+        },
+        {
+            nombre: 'Cuenta',
+            icono: 'usuario-icon',
+            ruta: '/a'
         }
     ]
 
@@ -128,7 +139,7 @@ const GestionarProducto: React.FC = () => {
                     await deleteProducto(id);
                     setProductos(productos.filter(prod => prod.id !== id));
                 } catch (err) {
-                    alert("No se pudo eliminar el repartidor");
+                    alert("No se pudo eliminar el producto");
                 }
                 }
             },
@@ -218,7 +229,7 @@ const GestionarProducto: React.FC = () => {
             </ModalCrearActualizar>
 
             <div className="">
-                <NavMovil informacion={InfoSinNav}></NavMovil>
+                <NavMovil opciones={navOptions} />
             </div>  
         </div>      
     );

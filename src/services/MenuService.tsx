@@ -6,7 +6,7 @@ const API_URL = import.meta.env.VITE_API_URL + '/menus' || "";
 export const getMenu = async (): Promise<Menu[]> => {
     try {
         const respuesta = await fetch(API_URL);
-        if (!respuesta.ok) throw new Error("Error al obtener los repartidores.");
+        if (!respuesta.ok) throw new Error("Error al obtener los menús.");
         return await respuesta.json();
     } catch (error) {
         console.error(error);
@@ -18,7 +18,7 @@ export const getMenu = async (): Promise<Menu[]> => {
 export const getMenurById = async (id: number): Promise<Menu> => {
     try {
         const respuesta = await fetch(`${API_URL}/${id}`);
-        if (!respuesta.ok) throw new Error(`Error al obtener el repartidor con ID ${id}.`);
+        if (!respuesta.ok) throw new Error(`Error al obtener el menú con ID ${id}.`);
         return await respuesta.json();
     } catch (error) {
         console.error(error);
@@ -37,8 +37,7 @@ export const createMenu = async (menu: Omit<Menu, 'id'>): Promise<Menu> => {
             body: JSON.stringify(menu)
         });
 
-        if (!respuesta.ok) throw new Error("Error al crear el repartidor.");
-        
+        if (!respuesta.ok) throw new Error("Error al crear el menú.");
         const data = await respuesta.json();
         return data[0]; 
     } catch (error) {
@@ -57,7 +56,7 @@ export const updateMenu = async (id: number, menu: Partial<Menu>): Promise<Menu>
             },
             body: JSON.stringify(menu)
         });
-        if (!respuesta.ok) throw new Error(`Error al actualizar el repartidor con ID ${id}.`);
+        if (!respuesta.ok) throw new Error(`Error al actualizar el menú con ID ${id}.`);
         return await respuesta.json();
     } catch (error) {
         console.error(error);
@@ -71,7 +70,7 @@ export const deleteMenu = async (id: number): Promise<boolean> => {
         const respuesta = await fetch(`${API_URL}/${id}`, {
             method: 'DELETE'
         });
-        if (!respuesta.ok) throw new Error(`Error al eliminar el repartidor con ID ${id}.`);
+        if (!respuesta.ok) throw new Error(`Error al eliminar el menú con ID ${id}.`);
         return true;
     } catch (error) {
         console.error(error);

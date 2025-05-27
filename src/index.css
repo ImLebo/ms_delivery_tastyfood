@@ -234,6 +234,34 @@
 	background-repeat: no-repeat;
 }
 
+.logo-restaurant-icon {
+	background-image: url('./images/icons/logo-restaurant-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.menu-restaurant-icon {
+	background-image: url('./images/icons/menu-restaurant-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.product-icon {
+	background-image: url('./images/icons/product-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.gestionar-cliente-icon {
+	background-image: url('./images/cliente/person-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .text-shadow {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }

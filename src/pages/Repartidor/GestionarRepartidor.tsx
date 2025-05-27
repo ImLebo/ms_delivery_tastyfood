@@ -34,10 +34,21 @@ const GestionarRepartidor: React.FC = () => {
 
     //Código adicional (Aux, Complementos para componentes, Etc)
 
-    const InfoSinNav = [
+    const navOptions = [
         {
-            icono: 'gestionar-repartidor-icon',
-            nombre: 'Gestionar Repartidor'
+            nombre: 'Gestionar moto',
+            icono: 'moto-icon',
+            ruta: '/gestionar-moto'
+        },
+        {
+            nombre: 'Gestionar turno',
+            icono: 'gestionar-turno-icon',
+            ruta: '/gestionar-turno'
+        },
+        {
+            nombre: 'Cuenta',
+            icono: 'usuario-icon',
+            ruta: '/a'
         }
     ]
 
@@ -245,7 +256,7 @@ const GestionarRepartidor: React.FC = () => {
         ></ModalCrearActualizar>
 
         <div className="">
-            <NavMovil informacion={InfoSinNav} />
+            <NavMovil opciones={navOptions} />
         </div>
     </div>
     );
