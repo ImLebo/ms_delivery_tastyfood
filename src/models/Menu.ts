@@ -3,8 +3,8 @@ import Producto from "./Producto";
 
 export default interface Menu {
     id: number;
-    restaurant_id: string; 
-    product_id: string; 
+    restaurant_id: number; 
+    product_id: number; 
     price: string; 
     availability: boolean;
     created_at?: Date;

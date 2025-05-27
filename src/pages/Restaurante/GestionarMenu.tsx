@@ -104,11 +104,25 @@ const GestionarMenu: React.FC = () => {
     const enviarFormulario = async (data: any) => {
         try {
             if (initialData.id) {
+
+            if (data.availability === 'true') {
+                data.availability = true;
+            } else {
+                data.availability = false;
+            }
+
             const menuActualizado = await updateMenu(initialData.id, data);
             setMenu(menus.map(menu => 
                 menu.id === initialData.id ? menuActualizado : menu
             ));
             } else {
+
+            if (data.availability === 'true') {
+                data.availability = true;
+            } else {
+                data.availability = false;
+            }
+
             const respuesta = await createMenu(data);
 
             const nuevoMenu = respuesta; 
@@ -242,7 +256,7 @@ const GestionarMenu: React.FC = () => {
                                         <p className="inline-block font-semibold text-lg text-left">Restaurante: {menu.restaurant?.name || '...Cargando'} </p>
                                         <p className="inline-block font-semibold text-lg text-left">Producto: {menu.product?.name || '...Cargando'} </p>
                                         <p className="inline-block font-semibold text-lg text-left">Precio: {menu.price || '...Cargando'}</p>
-                                        <p className="inline-block font-semibold text-lg text-left">Disponibilidad: {menu.availability || '...Cargando'} </p>
+                                        <p className="inline-block font-semibold text-lg text-left">Disponibilidad: {menu.availability == true ? "Disponible" : "No disponible"} </p>
                                     </div>
                                 </div>
                             </div>
