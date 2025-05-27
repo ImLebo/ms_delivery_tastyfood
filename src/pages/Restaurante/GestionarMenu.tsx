@@ -43,7 +43,7 @@ const GestionarMenu: React.FC = () => {
         },
         {
             nombre: 'Gestionar restaurante',
-            icono: 'gestionar-restaurante-icon',
+            icono: 'logo-restaurant-icon',
             ruta: '/gestionar-restaurante'
         },
         {

@@ -32,7 +32,7 @@ const GestionarCliente: React.FC = () => {
     const navOptions = [
         {
         nombre: 'Ver Restaurantes',
-        icono: 'gestionar-restaurante-icon',
+        icono: 'logo-restaurant-icon',
         ruta: '/ver-restaurantes',
         },
         {

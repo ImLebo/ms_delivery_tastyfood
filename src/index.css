@@ -241,8 +241,22 @@
 	background-repeat: no-repeat;
 }
 
+.logo-restaurant-icon-disable {
+	background-image: url('./images/icons/logo-restaurant-icon-disable.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .menu-restaurant-icon {
 	background-image: url('./images/icons/menu-restaurant-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.menu-restaurant-icon-disable {
+	background-image: url('./images/icons/menu-restaurant-icon-disable.svg');
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -255,8 +269,71 @@
 	background-repeat: no-repeat;
 }
 
+.product-icon-disable {
+	background-image: url('./images/icons/product-icon-disable.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .gestionar-cliente-icon {
 	background-image: url('./images/cliente/person-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.persona-icon {
+	background-image: url('./images/icons/persona-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.persona-icon-disable {
+	background-image: url('./images/icons/persona-icon-disable.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.motorcycle-icon {
+	background-image: url('./images/icons/motorcycle-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.motorcycle-icon-disable {
+	background-image: url('./images/icons/motorcycle-icon-disable.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.metamorphose-icon {
+	background-image: url('./images/icons/metamorphose-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.metamorphose-icon-disable {
+	background-image: url('./images/icons/metamorphose-icon-disable.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.supplier-icon {
+	background-image: url('./images/icons/supplier-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.supplier-icon-disable {
+	background-image: url('./images/icons/supplier-icon-disable.svg');
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;

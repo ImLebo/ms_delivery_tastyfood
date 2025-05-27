@@ -37,12 +37,12 @@ const GestionarRepartidor: React.FC = () => {
     const navOptions = [
         {
             nombre: 'Gestionar moto',
-            icono: 'moto-icon',
+            icono: 'motorcycle-icon',
             ruta: '/gestionar-moto'
         },
         {
             nombre: 'Gestionar turno',
-            icono: 'gestionar-turno-icon',
+            icono: 'metamorphose-icon',
             ruta: '/gestionar-turno'
         },
         {

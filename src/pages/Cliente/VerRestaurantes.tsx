@@ -25,7 +25,7 @@ const VerRestaurantes: React.FC = () => {
     const navOptions = [
         {
         nombre: 'Gestionar Cliente',
-        icono: 'usuario-negro-icon',
+        icono: 'persona-icon',
         ruta: '/gestionar-cliente',
         },
         {
