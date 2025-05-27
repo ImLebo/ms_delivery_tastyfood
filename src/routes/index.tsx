@@ -84,17 +84,17 @@ const coreRoutes = [
 				component: GestionarNovedad
 			},
 			{
-				path: '/ver-restaurantes',
-				title: 'VerRestaurantes',
-				component: VerRestaurantes
-			},
-			{
 				path: '/gestionar-cliente',
 				title: 'GestionarCliente',
 				component: GestionarCliente
 			},
 			{
-				path: '/ver-info-restaurante',
+				path: '/ver-restaurantes',
+				title: 'VerRestaurantes',
+				component: VerRestaurantes
+			},
+			{
+				path: '/ver-info-restaurante/:id',
 				title: 'VerInfoRestaurante',
 				component: VerInfoRestaurante
 			},			
