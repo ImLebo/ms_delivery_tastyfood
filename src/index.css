@@ -164,6 +164,76 @@
 	background-repeat: no-repeat;
 }
 
+.agregar-icon {
+	background-image: url('./images/icons/agregar-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.gestionar-restaurante-icon {
+	background-image: url('./images/restaurantes/gestionar-restaurante-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.gestionar-producto-icon {
+	background-image: url('./images/restaurantes/gestionar-producto-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.gestionar-menu-icon {
+	background-image: url('./images/restaurantes/gestionar-menu-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.cesta-compra-icon {
+	background-image: url('./images/icons/cesta-compra-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.cancel-icon {
+	background-image: url('./images/icons/cancel-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.novedad-icon {
+	background-image: url('./images/icons/novedad-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.novedad-negro-icon {
+	background-image: url('./images/icons/novedad-negro-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.dinero-icon {
+	background-image: url('./images/icons/dinero-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.guardar-icon {
+	background-image: url('./images/icons/guardar-icon.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .text-shadow {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }

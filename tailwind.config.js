@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         'azul-principal': '#00B8DB',
+        'pastelCyan': '#B5D3D7',
       },
       fontFamily: {
         'sans': ['Lato', 'sans-serif'], //Por defecto Lato
